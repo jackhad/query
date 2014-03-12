@@ -15,3 +15,13 @@ WHERE   EXISTS
             WHERE   b.follower_id = '203' AND 
                     a.follower_id IN (blesser_id, favourite_id)
         )
+
+
+Try this
+
+SELECT follow_church, 
+    CASE WHEN follower_id = '203' THEN 'He is Follower of this Church'
+	     WHEN blesser_id = '203' THEN 'He is Blesser of this Church'	
+         WHEN favourite_id = '203' THEN 'He is Favourite of this Church'
+         ELSE 'Null' END AS Continent
+FROM follow_church
